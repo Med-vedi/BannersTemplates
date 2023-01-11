@@ -1,0 +1,118 @@
+export const treeData = [
+  {
+    value: "vertical",
+    title: "Vertical",
+    children: [
+      {
+        value: "vcb",
+        title: "Vertical Carousel Bottom",
+        children: [
+          {
+            value: "vcbx300x600",
+            title: "300x600",
+          },
+          {
+            value: "vcbx240x600",
+            title: "240x600",
+          },
+          {
+            value: "vcbx160x600",
+            title: "160x600",
+          },
+        ],
+      },
+      {
+        value: "vcr",
+        title: "Vertical Carousel Right",
+        children: [
+          {
+            value: "vcrx240x400",
+            title: "240x400",
+          },
+          {
+            value: "vcrx300x500",
+            title: "300x500",
+          },
+          {
+            value: "vcrx320x480",
+            title: "320x480",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    value: "wide",
+    title: "Wide",
+    children: [
+      {
+        value: "wcb",
+        title: "Wide Carousel Bottom",
+        children: [
+          {
+            value: "wcbx300x250",
+            title: "300x250",
+          },
+          {
+            value: "wcbx300x300",
+            title: "300x300",
+          },
+          {
+            value: "wcbx336x280",
+            title: "336x280",
+          },
+
+          {
+            value: "wcbx360x250",
+            title: "360x250",
+          },
+          {
+            value: "wcbx400x240",
+            title: "400x240",
+          },
+
+          {
+            value: "wcbx393x250",
+            title: "393x250",
+          },
+          {
+            value: "wcbx412x250",
+            title: "412x250",
+          },
+          // no carousel
+          {
+            value: "wcbx480x320",
+            title: "480x320",
+          },
+          {
+            value: "wcbx360x200",
+            title: "360x200",
+          },
+          {
+            value: "wcbx360x180",
+            title: "360x180",
+          },
+        ],
+      },
+    ],
+  },
+];
+
+export const bannerHints = {
+  not_medicine: {
+    text: "Не является лекарством",
+    height_percent: 10,
+  },
+  over_11_age: {
+    text: "Проконсультируйтесь со специалистом. Для питания детей с 11 месяцев",
+    height_percent: 5,
+  },
+  get_doctor_consulting: {
+    text: "Есть противопоказания. Посоветуйтесь с врачом",
+    height_percent: 5,
+  },
+  weapon_warning: {
+    text: "Конструктивно сходные с оружием изделия",
+    height_percent: 5,
+  },
+};

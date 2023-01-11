@@ -18,6 +18,11 @@ export const treeData = [
           {
             value: "vcbx160x600",
             title: "160x600",
+            extra: {
+              no_padding: true,
+              // no_rating: true,
+              // no_best: true,
+            },
           },
         ],
       },

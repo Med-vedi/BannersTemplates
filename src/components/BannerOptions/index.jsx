@@ -13,8 +13,9 @@ const BannerOptions = ({ onSelect, handleWarnPlugChange }) => {
   const onSwitchChange = (checked) => {
     setSwitch(checked);
     if (!checked) {
-      setPlug("");
+      return setPlug("");
     }
+    setPlug("not_medicine");
   };
 
   const onRadioChange = (e) => {

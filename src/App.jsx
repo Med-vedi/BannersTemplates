@@ -12,10 +12,6 @@ function App() {
   const [selectedPlug, setPlug] = useState("");
 
   const onBannerSelected = (node) => {
-    console.log("=========================================");
-    console.log(`WE GOT: NOJJ`, node);
-    console.log("=========================================");
-
     const { value, title, extra } = node;
     const type = value.split("x")[0];
     const splittedTitle = title.split("x");

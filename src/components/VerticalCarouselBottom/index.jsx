@@ -7,17 +7,23 @@ import { bannerHints } from "../../constants/banners";
 
 const rating = 5;
 
-const VerticalCarouselBottom = ({ width, height, selectedPlug }) => {
+const VerticalCarouselBottom = ({
+  width,
+  height,
+  selectedPlug,
+  bannerProps,
+}) => {
   const imagesContainerL = parseInt((width - 10) / 50);
 
-  // console.log("=========================================");
-  // console.log(`WE GOT: `, width);
-  // console.log(`WE GOT: `, width / 50);
-  // console.log(`WE GOT: `, imagesContainerL);
-  // console.log(`WE GOT: `, width / 40);
-  // console.log("=========================================");
+  const { no_padding } = bannerProps || {};
 
-  const imagesDim = imagesContainerL >= 4 ? 50 : 40;
+  const plugHeight = selectedPlug
+    ? bannerHints[selectedPlug]?.height_percent
+    : 0;
+
+  const contentH = 80 - plugHeight;
+
+  const imagesDim = imagesContainerL >= 4 ? 53 : 40;
   const imagesL = imagesContainerL >= 5 ? 5 : 4;
 
   return (
@@ -25,15 +31,25 @@ const VerticalCarouselBottom = ({ width, height, selectedPlug }) => {
       className="banner"
       style={{ width: `${width}px`, height: `${height}px` }}
     >
-      <div className="banner__content">
-        <div className="banner__content-header">
+      <div
+        className="banner-vertical__content"
+        style={{ height: `${contentH}%`, marginTop: height / 10 + "px" }}
+      >
+        <div className="banner-vertical__brand padding-x-m">
           <img src={LOGO} alt="" />
           <span>Доктор Море</span>
         </div>
 
-        <img className="banner__content-img" src={IMAGE} alt=""></img>
+        <img
+          className="banner-vertical-main-img padding-x-m"
+          src={IMAGE}
+          alt=""
+        />
 
-        <div className="banner__content-carousel">
+        <div
+          className="carousel-hor"
+          style={{ padding: no_padding ? 0 : "0.6rem" }}
+        >
           {Array(+imagesL)
             .fill(0)
             .map((item, idx) => (
@@ -44,34 +60,32 @@ const VerticalCarouselBottom = ({ width, height, selectedPlug }) => {
                 }}
                 key={item + idx + "img"}
                 src={IMAGE}
-                alt="*"
+                alt="."
               />
             ))}
         </div>
 
-        <div className="banner__content-price">
+        <div className="banner__content-price rating padding-x-m">
           <span className="price-orig">2 490₽</span>
           <span className="price-old">4 290₽</span>
         </div>
 
-        <div className="banner__content-bestseller">
-          <span className="bestseller">Бестселлер</span>
-        </div>
+        <span className="bestseller padding-x-m">Бестселлер</span>
 
-        <div className="banner__content-description">
-          <span className="bestseller">
-            Энергобаланс - нуклеиновые кислоты для энергии, ускорения
-          </span>
-        </div>
+        <span className="description padding-x-m">
+          Энергобаланс - нуклеиновые кислоты для энергии, ускорения метаболизма{" "}
+        </span>
 
-        <div className="banner__content-rating">
+        <div className="rating padding-x-m">
           {Array(5)
             .fill(0)
             .map((item, idx) => (
               <img key={item + idx} src={RATING} alt="*" />
             ))}
         </div>
-        <button className="btn">Купить на OZON</button>
+        <div className="margin-custom-m">
+          <button className="btn">Купить на OZON</button>
+        </div>
       </div>
 
       {selectedPlug ? (

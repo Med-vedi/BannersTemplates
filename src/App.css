@@ -9,19 +9,12 @@
   display: flex;
 }
 
-.header,
 .banners-container {
   display: flex;
   align-items: center;
   justify-content: center;
 
 }
-
-.header {
-  height: 50px;
-  background-color: #f0f0f0;
-}
-
 
 .banners-container {
   margin: 0 auto;
@@ -34,4 +27,169 @@
 .options-container {
   width: 20%;
   padding: 10px;
+}
+
+/* COMMON STYLES */
+
+/* vertical banners */
+.banner {
+  border: 1px solid black;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.banner-vertical__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.banner-vertical__brand {
+  display: flex;
+  align-items: center;
+}
+
+.banner-vertical__brand>img {
+  width: 32px;
+  height: 32px;
+  margin-right: 12px;
+}
+
+.banner-vertical__brand>span {
+  font-weight: 400;
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.banner-vertical-main-img {
+  height: 40%;
+  object-fit: contain;
+}
+
+.price-orig {
+  font-weight: 700;
+  font-size: 18px;
+  color: #f61b58;
+}
+
+.price-old {
+  font-weight: 500;
+  font-size: 15px;
+  text-decoration: line-through;
+}
+
+.bestseller {
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: #fd8424;
+}
+
+.description {
+  margin: 6px 0;
+  font-weight: 400;
+  font-size: 0.8rem;
+  opacity: 0.8;
+  line-height: 130%;
+}
+
+/* CAROUSEL  */
+
+.carousel-vert {
+  display: flex;
+  align-items: center;
+}
+
+.carousel-hor {
+  display: flex;
+  align-items: center;
+
+}
+
+.carousel-hor>img {
+  object-fit: contain;
+
+}
+
+.carousel-vert>img {
+  object-fit: contain;
+
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.rating>img {
+  width: 15px;
+  height: 15px;
+  margin-right: 3px;
+}
+
+.btn {
+  border: none;
+  color: #fff;
+  background-color: #0060ff;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #2050d8;
+}
+
+.banner__marking_plug {
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  font-size: 1rem;
+
+  color: #bfbfbf;
+}
+
+button {
+  max-width: 10rem;
+  padding: 4px 0.7rem;
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+/* COMMON  */
+.padding-x-l {
+  padding: 0 1rem;
+}
+
+.padding-x-m {
+  padding: 0 .6rem;
+}
+
+.padding-custom-m {
+  padding: 0 .6rem .6rem;
+}
+
+.margin-custom-m {
+  padding: 0 .6rem .6rem;
+}
+
+
+
+.d-flex {
+  display: flex;
+}
+
+.d-flex-center {
+  display: flex;
+  align-items: center;
+}
+
+.d-flex-col {
+  display: flex;
+  flex-direction: column;
 }

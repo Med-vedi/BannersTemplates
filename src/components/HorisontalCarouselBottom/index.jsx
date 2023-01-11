@@ -3,7 +3,7 @@ import "./style.scss";
 import LOGO from "../../assets/logo.png";
 import IMAGE from "../../assets/image.png";
 import RATING from "../../assets/rating.svg";
-import { bannerHints, treeData } from "../../constants/banners";
+import { bannerHints } from "../../constants/banners";
 
 const rating = 5;
 
@@ -30,7 +30,10 @@ const HorisontalCarouselBottom = ({
       className="banner"
       style={{ width: `${width}px`, height: `${height}px` }}
     >
-      <div className="banner-hcb__content" style={{ height: `${contentH}%` }}>
+      <div
+        className="banner-hcb__content content-padding-custom-m"
+        style={{ height: `${contentH}%`, marginTop: height / 10 + "px" }}
+      >
         <div className="banner-hcb__content-header">
           <img src={LOGO} alt="" />
           <span>Доктор Море</span>
@@ -79,7 +82,7 @@ const HorisontalCarouselBottom = ({
               </div>
             ) : null}
 
-            <span className="banner-hcb__content-aside__description">
+            <span className="description">
               Энергобаланс - нуклеиновые кислоты для энергии, ускорения
             </span>
 
@@ -99,7 +102,7 @@ const HorisontalCarouselBottom = ({
 
       {selectedPlug ? (
         <div
-          className="banner-hcb__marking_plug"
+          className="banner__marking_plug"
           style={{
             fontSize:
               bannerHints[selectedPlug]?.height_percent > 5 ? "1rem" : ".4rem",

@@ -9,16 +9,12 @@ const rating = 5;
 
 const VerticalCarouselRight = ({ width, height, selectedPlug }) => {
   const imagesContainerH = parseInt(height / 2.1 / 50);
+
   const plugHeight = selectedPlug
     ? bannerHints[selectedPlug]?.height_percent
     : 0;
-  const imageCarouselHeight = ((height / 100) * (40 - plugHeight)) / 4;
 
-  // console.log("=========================================");
-  // console.log(`WE GOT: `, height);
-  // console.log(`WE GOT: `, (height / 100) * 30);
-  // console.log(`WE GOT: `, imageCarouselHeight);
-  // console.log("=========================================");
+  const imageCarouselHeight = ((height / 100) * (50 - plugHeight)) / 4;
 
   const imagesDim = imageCarouselHeight;
   const imagesH = imagesContainerH >= 5 ? 5 : 4;
@@ -28,8 +24,11 @@ const VerticalCarouselRight = ({ width, height, selectedPlug }) => {
       className="banner-vcr"
       style={{ width: `${width}px`, height: `${height}px` }}
     >
-      <div className="banner-vcr__content">
-        <div className="banner-vcr__content-header">
+      <div
+        className="banner-vertical__content"
+        style={{ height: `${contentH}%`, marginTop: height / 10 + "px" }}
+      >
+        <div className="banner-vertical__brand">
           <img src={LOGO} alt="" />
           <span>Доктор Море</span>
         </div>
@@ -63,15 +62,13 @@ const VerticalCarouselRight = ({ width, height, selectedPlug }) => {
           <span className="price-old">4 290₽</span>
         </div>
 
-        <div className="banner-vcr__content-bestseller">
+        {/* <div className="banner-vcr__content-bestseller">
           <span className="bestseller">Бестселлер</span>
-        </div>
+        </div> */}
 
-        <div className="banner-vcr__content-description">
-          <span className="bestseller">
-            Энергобаланс - нуклеиновые кислоты для энергии, ускорения
-          </span>
-        </div>
+        <span className="description">
+          Энергобаланс - нуклеиновые кислоты для энергии, ускорения
+        </span>
 
         <div className="banner-vcr__content-rating">
           {Array(5)

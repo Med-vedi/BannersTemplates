@@ -9,7 +9,9 @@ const rating = 5;
 
 const VerticalCarouselRight = ({ width, height, selectedPlug }) => {
   const imagesContainerH = parseInt(height / 2.1 / 50);
-  const plugHeight = selectedPlug && bannerHints[selectedPlug]?.height_percent;
+  const plugHeight = selectedPlug
+    ? bannerHints[selectedPlug]?.height_percent
+    : 0;
   const imageCarouselHeight = ((height / 100) * (40 - plugHeight)) / 4;
 
   // console.log("=========================================");

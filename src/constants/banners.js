@@ -42,55 +42,70 @@ export const treeData = [
     ],
   },
   {
-    value: "wide",
-    title: "Wide",
+    value: "horisontal",
+    title: "Horisontal",
     children: [
       {
-        value: "wcb",
-        title: "Wide Carousel Bottom",
+        value: "hcb",
+        title: "Horisontal Carousel Bottom",
         children: [
           {
-            value: "wcbx300x250",
+            value: "hcbx300x250",
             title: "300x250",
           },
           {
-            value: "wcbx300x300",
+            value: "hcbx300x300",
             title: "300x300",
           },
           {
-            value: "wcbx336x280",
+            value: "hcbx336x280",
             title: "336x280",
           },
 
           {
-            value: "wcbx360x250",
+            value: "hcbx360x250",
             title: "360x250",
           },
           {
-            value: "wcbx400x240",
+            value: "hcbx400x240",
             title: "400x240",
           },
 
           {
-            value: "wcbx393x250",
+            value: "hcbx393x250",
             title: "393x250",
           },
           {
-            value: "wcbx412x250",
+            value: "hcbx412x250",
             title: "412x250",
           },
           // no carousel
           {
-            value: "wcbx480x320",
+            value: "hcbx480x320",
             title: "480x320",
+            extra: {
+              no_carousel: true,
+              // no_rating: true,
+              // no_best: true,
+            },
           },
           {
-            value: "wcbx360x200",
+            value: "hcbx360x200",
             title: "360x200",
+            extra: {
+              no_carousel: true,
+              // no_rating: true,
+              // no_best: true,
+            },
           },
           {
-            value: "wcbx360x180",
+            value: "hcbx360x180",
             title: "360x180",
+            extra: {
+              no_carousel: true,
+              no_rating: true,
+              no_best: true,
+            },
           },
         ],
       },

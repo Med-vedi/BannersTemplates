@@ -6,15 +6,10 @@ const initialSelect = { w: 0, h: 0, type: "" };
 const BannerSelect = ({ onSelect }) => {
   const [value, setValue] = useState();
 
-  const onSelected = (_, node) => {
-    const { value, title } = node;
-    const type = value.split("x")[0];
-    const splittedTitle = title.split("x");
-    onSelect({ w: splittedTitle[0], h: splittedTitle[1], type });
+  const onSelected = (_, node, extra) => {
+    const { title } = node;
+    onSelect(node, extra);
     setValue(title);
-    console.log("=========================================");
-    console.log(`WE GOT: `, title);
-    console.log("=========================================");
   };
 
   return (

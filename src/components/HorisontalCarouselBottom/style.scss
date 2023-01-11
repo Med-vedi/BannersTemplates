@@ -6,14 +6,14 @@
   flex-direction: column;
 }
 
-.banner__content {
-  padding: 0 1rem;
+.banner-hcb__content {
+  padding: 0.6rem;
   margin-top: 10%;
 
   flex: 1;
   display: flex;
   flex-direction: column;
-  height: 80%;
+  // height: 80%;
 
   &-header {
     display: flex;
@@ -29,28 +29,36 @@
       opacity: 0.8;
     }
   }
+}
 
-  &-img {
+.banner-hcb__content-wrapper {
+  display: flex;
+}
+.banner-hcb__content-main {
+  width: 45%;
+
+  &__img {
     min-height: 40%;
     width: 100%;
     object-fit: contain;
   }
 
-  &-carousel {
+  &__carousel {
     display: flex;
     align-items: center;
     img {
-      width: 50px;
-      height: 50px;
       object-fit: cover;
-      &.small {
-        width: 39px;
-        height: 39px;
-      }
     }
   }
+}
 
-  &-price {
+.banner-hcb__content-aside {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 5px;
+
+  &__price {
     .price-orig {
       font-weight: 700;
       font-size: 18px;
@@ -63,23 +71,23 @@
     }
   }
 
-  &-bestseller {
-    margin: 6px 0;
+  &__bestseller {
+    // margin: 6px 0;
     font-weight: 500;
-    font-size: 14px;
-    line-height: 16px;
+    font-size: 0.85rem;
+    line-height: 1rem;
     color: #fd8424;
   }
 
-  &-description {
+  &__description {
     margin: 6px 0;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 0.8rem;
     opacity: 0.8;
     line-height: 130%;
   }
 
-  &-rating {
+  &__rating {
     display: flex;
     align-items: center;
     flex: 1;
@@ -89,13 +97,17 @@
       margin-right: 3px;
     }
   }
-
-  button {
-    margin: 12px 0;
+  & .btn {
+    max-width: 10rem;
+    // margin: 12px 0;
+    padding: 4px 1.2rem;
+    font-weight: 600;
+    font-size: 0.8rem;
+    line-height: 16px;
   }
 }
 
-.banner__marking_plug {
+.banner-hcb__marking_plug {
   background: #f5f5f5;
   display: flex;
   align-items: center;
@@ -104,17 +116,7 @@
   text-align: center;
   letter-spacing: 0.01em;
   text-transform: uppercase;
-  font-size: 1rem;
-
   color: #bfbfbf;
-}
-
-button {
-  max-width: 10rem;
-  padding: 4px 1.2rem;
-  font-weight: 600;
-  font-size: 0.8rem;
-  line-height: 16px;
 }
 
 /* BUTTON */

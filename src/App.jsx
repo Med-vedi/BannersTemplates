@@ -2,12 +2,26 @@ import { useState } from "react";
 import "./App.css";
 import BannerOptions from "./components/BannerOptions";
 import BannerSelect from "./components/BannerSelect";
+import HorisontalCarouselBottom from "./components/HorisontalCarouselBottom";
 import VerticalCarouselBottom from "./components/VerticalCarouselBottom";
 import VerticalCarouselRight from "./components/VerticalCarouselRight";
 
 function App() {
   const [bannerSize, setBannerSize] = useState({ w: 0, h: 0, type: "" });
+  const [bannerProps, setBannerProps] = useState("");
   const [selectedPlug, setPlug] = useState("");
+
+  const onBannerSelected = (node) => {
+    console.log("=========================================");
+    console.log(`WE GOT: NOJJ`, node);
+    console.log("=========================================");
+
+    const { value, title, extra } = node;
+    const type = value.split("x")[0];
+    const splittedTitle = title.split("x");
+    setBannerSize({ w: splittedTitle[0], h: splittedTitle[1], type });
+    setBannerProps(extra);
+  };
 
   const { w, h, type } = bannerSize;
   return (
@@ -18,6 +32,7 @@ function App() {
             width={w}
             height={h}
             selectedPlug={selectedPlug}
+            bannerProps={bannerProps}
           />
         ) : null}
         {type === "vcr" ? (
@@ -25,12 +40,21 @@ function App() {
             width={w}
             height={h}
             selectedPlug={selectedPlug}
+            bannerProps={bannerProps}
+          />
+        ) : null}
+        {type === "hcb" ? (
+          <HorisontalCarouselBottom
+            width={w}
+            height={h}
+            selectedPlug={selectedPlug}
+            bannerProps={bannerProps}
           />
         ) : null}
       </div>
       <div className="options-container">
         <BannerOptions
-          onSelect={setBannerSize}
+          onSelect={onBannerSelected}
           handleWarnPlugChange={setPlug}
         />
       </div>

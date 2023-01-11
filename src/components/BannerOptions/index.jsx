@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import BannerSelect from "../BannerSelect";
 import "./style.scss";
 import { Switch } from "antd";
-import { Radio } from "antd";
+import { Radio, Space } from "antd";
 import { useEffect } from "react";
 
 const BannerOptions = ({ onSelect, handleWarnPlugChange }) => {
@@ -36,10 +36,12 @@ const BannerOptions = ({ onSelect, handleWarnPlugChange }) => {
           onChange={onRadioChange}
           disabled={!isSwitch}
         >
-          <Radio value="not_medicine">БАДы</Radio>
-          <Radio value="over_11_age">Детское питание</Radio>
-          <Radio value="get_doctor_consulting">Мед. противопоказания</Radio>
-          <Radio value="weapon_warning">Игр. оружие</Radio>
+          <Space direction="vertical">
+            <Radio value="not_medicine">БАДы</Radio>
+            <Radio value="over_11_age">Детское питание</Radio>
+            <Radio value="get_doctor_consulting">Мед. противопоказания</Radio>
+            <Radio value="weapon_warning">Игр. оружие</Radio>
+          </Space>
         </Radio.Group>
       </div>
     </div>

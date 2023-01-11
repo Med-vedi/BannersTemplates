@@ -62,9 +62,34 @@
   opacity: 0.8;
 }
 
-.banner-vertical-main-img {
+/* CB - carousel bottom */
+.banner-vertical-cb-main__img {
   height: 40%;
   object-fit: contain;
+}
+
+/* CB - carousel right */
+.banner-vertical-cr-image__wrapper img {
+  object-fit: contain;
+
+}
+
+.banner-vertical-cr-image__wrapper {
+  min-height: 40%;
+  max-height: 49%;
+  display: flex;
+}
+
+.banner-vertical-cr-image__img {
+  width: 80%;
+  height: 100%;
+}
+
+.banner-vertical-cr-image__carousel {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .price-orig {
@@ -97,6 +122,7 @@
 
 .carousel-vert {
   display: flex;
+  flex-direction: column;
   align-items: center;
 }
 

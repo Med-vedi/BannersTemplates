@@ -5,27 +5,32 @@ import IMAGE from "../../assets/image.png";
 import RATING from "../../assets/rating.svg";
 import { bannerHints } from "../../constants/banners";
 
-const rating = 5;
-
 const VerticalCarouselRight = ({ width, height, selectedPlug }) => {
-  const imagesContainerH = parseInt(height / 2.1 / 50);
+  const realBannerHeight = height * 0.8; //100% - 10% of disclaimer on top
+
+  const mainImageHeight = realBannerHeight / 2; //50% of real banner height
+  const carouselLength = parseInt(mainImageHeight / 50);
+  const imagesInRow = carouselLength >= 5 ? 5 : 4;
 
   const plugHeight = selectedPlug
     ? bannerHints[selectedPlug]?.height_percent
     : 0;
 
-  const imageCarouselHeight = ((height / 100) * (50 - plugHeight)) / 4;
+  const contentH = 80 - plugHeight;
+
+  const imageCarouselHeight = plugHeight
+    ? (mainImageHeight - plugHeight) / imagesInRow
+    : mainImageHeight / imagesInRow;
 
   const imagesDim = imageCarouselHeight;
-  const imagesH = imagesContainerH >= 5 ? 5 : 4;
 
   return (
     <div
-      className="banner-vcr"
+      className="banner"
       style={{ width: `${width}px`, height: `${height}px` }}
     >
       <div
-        className="banner-vertical__content"
+        className="banner-vertical__content padding-custom-m"
         style={{ height: `${contentH}%`, marginTop: height / 10 + "px" }}
       >
         <div className="banner-vertical__brand">
@@ -33,15 +38,15 @@ const VerticalCarouselRight = ({ width, height, selectedPlug }) => {
           <span>Доктор Море</span>
         </div>
 
-        <div className="banner-vcr__content-img-container">
+        <div className="banner-vertical-cr-image__wrapper">
           <img
-            className="banner-vcr__content-img-container-img"
+            className="banner-vertical-cr-image__img"
             src={IMAGE}
             alt=""
           ></img>
 
-          <div className="banner-vcr__content-img-container-carousel">
-            {Array(+imagesH)
+          <div className="carousel-vert">
+            {Array(+imagesInRow)
               .fill(0)
               .map((item, idx) => (
                 <img
@@ -57,7 +62,7 @@ const VerticalCarouselRight = ({ width, height, selectedPlug }) => {
           </div>
         </div>
 
-        <div className="banner-vcr__content-price">
+        <div className="price">
           <span className="price-orig">2 490₽</span>
           <span className="price-old">4 290₽</span>
         </div>
@@ -67,10 +72,10 @@ const VerticalCarouselRight = ({ width, height, selectedPlug }) => {
         </div> */}
 
         <span className="description">
-          Энергобаланс - нуклеиновые кислоты для энергии, ускорения
+          Энергобаланс - нуклеиновые кислоты для энергии, ускорения метаболизма{" "}
         </span>
 
-        <div className="banner-vcr__content-rating">
+        <div className="rating">
           {Array(5)
             .fill(0)
             .map((item, idx) => (

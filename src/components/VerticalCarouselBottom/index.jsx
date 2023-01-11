@@ -1,5 +1,4 @@
 import React from "react";
-import "./style.scss";
 import LOGO from "../../assets/logo.png";
 import IMAGE from "../../assets/image.png";
 import RATING from "../../assets/rating.svg";
@@ -41,7 +40,7 @@ const VerticalCarouselBottom = ({
         </div>
 
         <img
-          className="banner-vertical-main-img padding-x-m"
+          className="banner-vertical-cb-main__img padding-x-m"
           src={IMAGE}
           alt=""
         />

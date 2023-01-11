@@ -14,8 +14,8 @@ const VerticalCarouselBottom = ({
 }) => {
   const { no_padding } = bannerProps || {};
 
-  const conatinerPadding = 16 * 0.6 * 2;
-  const mainImageWidth = no_padding ? width : width - conatinerPadding;
+  const containerPadding = 16 * 0.6 * 2;
+  const mainImageWidth = no_padding ? width : width - containerPadding;
 
   const carouselWidth = mainImageWidth / 50 >= 5 ? 5 : 4;
   const imagesDim = mainImageWidth / carouselWidth;
@@ -35,7 +35,7 @@ const VerticalCarouselBottom = ({
         className="banner-vertical__content"
         style={{ height: `${contentH}%`, marginTop: height / 10 + "px" }}
       >
-        <div className="banner-vertical__brand padding-x-m">
+        <div className="banner-brand padding-x-m">
           <img src={LOGO} alt="" />
           <span>Доктор Море</span>
         </div>

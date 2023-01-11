@@ -9,14 +9,16 @@
   display: flex;
 }
 
+.options-container {
+  width: 20%;
+  padding: 10px;
+}
+
+
 .banners-container {
   display: flex;
   align-items: center;
   justify-content: center;
-
-}
-
-.banners-container {
   margin: 0 auto;
   min-height: 900px;
   height: 100%;
@@ -24,9 +26,23 @@
   width: 80%;
 }
 
-.options-container {
-  width: 20%;
-  padding: 10px;
+
+
+.banner-brand {
+  display: flex;
+  align-items: center;
+}
+
+.banner-brand>img {
+  width: 32px;
+  height: 32px;
+  margin-right: 12px;
+}
+
+.banner-brand>span {
+  font-weight: 400;
+  font-size: 12px;
+  opacity: 0.8;
 }
 
 /* COMMON STYLES */
@@ -45,22 +61,11 @@
   flex-direction: column;
 }
 
-.banner-vertical__brand {
-  display: flex;
-  align-items: center;
+.banner-content img {
+  object-fit: contain;
 }
 
-.banner-vertical__brand>img {
-  width: 32px;
-  height: 32px;
-  margin-right: 12px;
-}
 
-.banner-vertical__brand>span {
-  font-weight: 400;
-  font-size: 12px;
-  opacity: 0.8;
-}
 
 /* CB - carousel bottom */
 .banner-vertical-cb-main__img {
@@ -91,6 +96,9 @@
   flex-direction: column;
   align-items: center;
 }
+
+
+/****/
 
 .price-orig {
   font-weight: 700;
@@ -129,7 +137,7 @@
 .carousel-hor {
   display: flex;
   align-items: center;
-
+  height: 20%;
 }
 
 .carousel-hor>img {
@@ -202,6 +210,15 @@ button {
 
 .margin-custom-m {
   padding: 0 .6rem .6rem;
+}
+
+/* WIDTH PERCENT */
+.w-45 {
+  width: 45%;
+}
+
+.w-100 {
+  width: 100%;
 }
 
 

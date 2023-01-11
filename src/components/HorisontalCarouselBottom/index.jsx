@@ -13,17 +13,21 @@ const HorisontalCarouselBottom = ({
   selectedPlug,
   bannerProps,
 }) => {
-  const imagesContainerL = parseInt((width - 10) / 2.1 / 50);
   const { no_carousel, no_rating, no_best } = bannerProps || {};
+  const disclaimerHpercent = (16 * 1.2) / (height / 100);
+  const disclaimerH = 16 * 1.2;
+
+  const containerPadding = 16 * 0.6;
+  const mainImageWidth = width * 0.45 - containerPadding;
+
+  const carouselWidth = mainImageWidth / 50 >= 5 ? 5 : 4;
+  const imagesDim = mainImageWidth / carouselWidth;
 
   const plugHeight = selectedPlug
     ? bannerHints[selectedPlug]?.height_percent
     : 0;
 
-  const contentH = 80 - plugHeight;
-
-  const imagesDim = imagesContainerL >= 4 ? 50 : 32;
-  const imagesL = imagesContainerL >= 5 ? 5 : 4;
+  const contentH = height - containerPadding * 1.2 - containerPadding;
 
   return (
     <div
@@ -31,29 +35,39 @@ const HorisontalCarouselBottom = ({
       style={{ width: `${width}px`, height: `${height}px` }}
     >
       <div
-        className="banner-hcb__content content-padding-custom-m"
-        style={{ height: `${contentH}%`, marginTop: height / 10 + "px" }}
+        className="d-flex-col padding-custom-m"
+        style={{
+          height: `${contentH - plugHeight - disclaimerH}px`,
+          marginTop: "1.2rem",
+          flex: 1,
+        }}
       >
-        <div className="banner-hcb__content-header">
+        <div className="banner-brand">
           <img src={LOGO} alt="" />
           <span>Доктор Море</span>
         </div>
 
         <div
-          className="banner-hcb__content-wrapper"
-          style={{ height: 95 - plugHeight + "%" }}
+          className="banner-content d-flex"
+          style={{
+            height:
+              100 - disclaimerHpercent - containerPadding - plugHeight + "%",
+          }}
         >
-          <div className="banner-hcb__content-main">
+          <div className="w-45">
             <img
               className="banner-hcb__content-main__img"
               src={IMAGE}
               alt=""
-              style={{ height: no_carousel ? "100%" : "80%" }}
+              style={{
+                height: no_carousel ? "100%" : "80%",
+                maxWidth: "100%",
+              }}
             ></img>
 
             {!no_carousel ? (
-              <div className="banner-hcb__content-main__carousel">
-                {Array(+imagesL)
+              <div className="carousel-hor">
+                {Array(+carouselWidth)
                   .fill(0)
                   .map((item, idx) => (
                     <img
@@ -71,13 +85,13 @@ const HorisontalCarouselBottom = ({
           </div>
 
           <div className="banner-hcb__content-aside">
-            <div className="banner-hcb__content-aside__price">
+            <div className="price">
               <span className="price-orig">2 490₽</span>
               <span className="price-old">4 290₽</span>
             </div>
 
             {!no_best ? (
-              <div className="banner-hcb__content-aside__bestseller">
+              <div className="bestseller">
                 <span className="bestseller">Бестселлер</span>
               </div>
             ) : null}
@@ -87,7 +101,7 @@ const HorisontalCarouselBottom = ({
             </span>
 
             {!no_rating ? (
-              <div className="banner-hcb__content-aside__rating">
+              <div className="rating">
                 {Array(5)
                   .fill(0)
                   .map((item, idx) => (

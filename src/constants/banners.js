@@ -99,8 +99,8 @@ export const treeData = [
             title: "360x200",
             extra: {
               no_carousel: true,
-              // no_rating: true,
-              // no_best: true,
+              no_rating: true,
+              no_best: true,
             },
           },
           {

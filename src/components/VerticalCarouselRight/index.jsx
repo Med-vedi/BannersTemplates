@@ -16,6 +16,7 @@ const VerticalCarouselRight = ({ width, height, selectedPlug }) => {
     ? bannerHints[selectedPlug]?.height_percent
     : 0;
 
+  // percents 80 because of 20% of the disclaimer header
   const contentH = 80 - plugHeight;
 
   const imageCarouselHeight = plugHeight
@@ -33,7 +34,7 @@ const VerticalCarouselRight = ({ width, height, selectedPlug }) => {
         className="banner-vertical__content padding-custom-m"
         style={{ height: `${contentH}%`, marginTop: height / 10 + "px" }}
       >
-        <div className="banner-vertical__brand">
+        <div className="banner-brand">
           <img src={LOGO} alt="" />
           <span>Доктор Море</span>
         </div>

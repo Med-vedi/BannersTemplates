@@ -44,7 +44,6 @@ const VerticalCarouselRight = ({ width, height, selectedPlug }) => {
             src={IMAGE}
             alt=""
           ></img>
-
           <div className="carousel-vert">
             {Array(+imagesInRow)
               .fill(0)

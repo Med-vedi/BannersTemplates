@@ -1,7 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import BannerOptions from "./components/BannerOptions";
-import BannerSelect from "./components/BannerSelect";
 import HorisontalCarouselBottom from "./components/HorisontalCarouselBottom";
 import VerticalCarouselBottom from "./components/VerticalCarouselBottom";
 import VerticalCarouselRight from "./components/VerticalCarouselRight";
@@ -10,6 +9,15 @@ function App() {
   const [bannerSize, setBannerSize] = useState({ w: 0, h: 0, type: "" });
   const [bannerProps, setBannerProps] = useState("");
   const [selectedPlug, setPlug] = useState("");
+  const [settings, setSettings] = useState({
+    hideCarousel: false,
+    hideRating: false,
+    hideBest: false,
+  });
+
+  const settingsHandler = (option = {}) => {
+    setSettings((prev) => ({ ...prev, ...option }));
+  };
 
   const onBannerSelected = (node) => {
     const { value, title, extra } = node;
@@ -29,6 +37,7 @@ function App() {
             height={h}
             selectedPlug={selectedPlug}
             bannerProps={bannerProps}
+            settings={settings}
           />
         ) : null}
         {type === "vcr" ? (
@@ -37,6 +46,7 @@ function App() {
             height={h}
             selectedPlug={selectedPlug}
             bannerProps={bannerProps}
+            settings={settings}
           />
         ) : null}
         {type === "hcb" ? (
@@ -45,6 +55,7 @@ function App() {
             height={h}
             selectedPlug={selectedPlug}
             bannerProps={bannerProps}
+            settings={settings}
           />
         ) : null}
       </div>
@@ -52,6 +63,7 @@ function App() {
         <BannerOptions
           onSelect={onBannerSelected}
           handleWarnPlugChange={setPlug}
+          settingsHandler={settingsHandler}
         />
       </div>
     </div>

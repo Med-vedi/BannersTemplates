@@ -69,7 +69,7 @@
 
 /* CB - carousel bottom */
 .banner-vertical-cb-main__img {
-  height: 40%;
+  height: 50%;
   object-fit: contain;
 }
 
@@ -216,6 +216,10 @@ button {
   width: 45%;
 }
 
+.w-90 {
+  width: 90%;
+}
+
 .w-100 {
   width: 100%;
 }
@@ -233,12 +237,31 @@ button {
   align-items: center;
 }
 
+.d-flex-center-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
 .d-flex-col {
   display: flex;
   flex-direction: column;
 }
 
+.center-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
 .justify-csb {
   justify-content: space-between;
+
+}
+
+.justify-cc {
+  justify-content: center;
 
 }

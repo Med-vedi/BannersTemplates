@@ -4,7 +4,13 @@ import IMAGE from "../../assets/image.png";
 import RATING from "../../assets/rating.svg";
 import { bannerHints } from "../../constants/banners";
 
-const VerticalCarouselRight = ({ width, height, selectedPlug }) => {
+const VerticalCarouselRight = ({
+  width,
+  height,
+  selectedPlug,
+  bannerProps,
+  settings = {},
+}) => {
   const realBannerHeight = height * 0.8; //100% - 10% of disclaimer on top
 
   const mainImageHeight = realBannerHeight / 2; //50% of real banner height
@@ -44,21 +50,23 @@ const VerticalCarouselRight = ({ width, height, selectedPlug }) => {
             src={IMAGE}
             alt=""
           ></img>
-          <div className="carousel-vert">
-            {Array(+imagesInRow)
-              .fill(0)
-              .map((item, idx) => (
-                <img
-                  style={{
-                    width: imagesDim + "px",
-                    height: imagesDim + "px",
-                  }}
-                  key={item + idx + "img"}
-                  src={IMAGE}
-                  alt="*"
-                />
-              ))}
-          </div>
+          {!no_carousel && !hideCarousel ? (
+            <div className="carousel-vert">
+              {Array(+imagesInRow)
+                .fill(0)
+                .map((item, idx) => (
+                  <img
+                    style={{
+                      width: imagesDim + "px",
+                      height: imagesDim + "px",
+                    }}
+                    key={item + idx + "img"}
+                    src={IMAGE}
+                    alt="*"
+                  />
+                ))}
+            </div>
+          ) : null}
         </div>
 
         <div className="price">
@@ -74,13 +82,15 @@ const VerticalCarouselRight = ({ width, height, selectedPlug }) => {
           Энергобаланс - нуклеиновые кислоты для энергии, ускорения метаболизма{" "}
         </span>
 
-        <div className="rating">
-          {Array(5)
-            .fill(0)
-            .map((item, idx) => (
-              <img key={item + idx} src={RATING} alt="*" />
-            ))}
-        </div>
+        {!no_rating && !hideRating ? (
+          <div className="rating">
+            {Array(5)
+              .fill(0)
+              .map((item, idx) => (
+                <img key={item + idx} src={RATING} alt="*" />
+              ))}
+          </div>
+        ) : null}
         <button className="btn">Купить на OZON</button>
       </div>
 

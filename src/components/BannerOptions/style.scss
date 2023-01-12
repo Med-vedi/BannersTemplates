@@ -1,5 +1,6 @@
 .ant-switch {
   margin-bottom: 15px;
+  max-width: 35px;
 }
 
 .banner-options {
@@ -8,5 +9,11 @@
 }
 
 .banner-options__advanced {
+  display: flex;
+  flex-direction: column;
   padding: 20px 0;
+}
+
+label {
+  margin-top: 10px;
 }

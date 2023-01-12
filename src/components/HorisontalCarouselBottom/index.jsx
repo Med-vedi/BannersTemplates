@@ -9,7 +9,10 @@ const HorisontalCarouselBottom = ({
   height,
   selectedPlug,
   bannerProps,
+  settings = {},
 }) => {
+  const { hideCarousel, hideRating, hideBest } = settings;
+
   const { no_carousel, no_rating, no_best } = bannerProps || {};
   const disclaimerH = 16 * 1.2;
   const containerPadding = 16 * 0.6;
@@ -52,7 +55,7 @@ const HorisontalCarouselBottom = ({
               100 - disclaimerHpercent - containerPadding - plugHeight + "%",
           }}
         >
-          <div className="w-45">
+          <div className="w-90 d-flex-col center-center">
             <img
               src={IMAGE}
               alt=""
@@ -62,7 +65,7 @@ const HorisontalCarouselBottom = ({
               }}
             ></img>
 
-            {!no_carousel ? (
+            {!no_carousel && !hideCarousel ? (
               <div className="carousel-hor" style={{ height: "20%" }}>
                 {Array(+carouselWidth)
                   .fill(0)
@@ -87,7 +90,7 @@ const HorisontalCarouselBottom = ({
               <span className="price-old">4 290₽</span>
             </div>
 
-            {!no_best ? (
+            {!no_best && !hideBest ? (
               <div className="bestseller">
                 <span className="bestseller">Бестселлер</span>
               </div>
@@ -97,7 +100,7 @@ const HorisontalCarouselBottom = ({
               Энергобаланс - нуклеиновые кислоты для энергии, ускорения
             </span>
 
-            {!no_rating ? (
+            {!no_rating && !hideRating ? (
               <div className="rating">
                 {Array(5)
                   .fill(0)

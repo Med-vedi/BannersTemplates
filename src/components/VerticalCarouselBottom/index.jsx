@@ -9,7 +9,9 @@ const VerticalCarouselBottom = ({
   height,
   selectedPlug,
   bannerProps,
+  settings = {},
 }) => {
+  const { hideCarousel, hideRating, hideBest } = settings;
   const { no_padding } = bannerProps || {};
 
   const disclaimerH = 16 * 1.2;
@@ -46,43 +48,50 @@ const VerticalCarouselBottom = ({
           alt=""
         />
 
-        <div
-          className="carousel-hor"
-          style={{ padding: no_padding ? 0 : "0.6rem" }}
-        >
-          {Array(+carouselWidth)
-            .fill(0)
-            .map((item, idx) => (
-              <img
-                style={{
-                  width: imagesDim + "px",
-                  height: imagesDim + "px",
-                }}
-                key={item + idx + "img"}
-                src={IMAGE}
-                alt="."
-              />
-            ))}
+        {!hideCarousel ? (
+          <div
+            className="carousel-hor"
+            style={{ padding: no_padding ? 0 : "0.6rem" }}
+          >
+            {Array(+carouselWidth)
+              .fill(0)
+              .map((item, idx) => (
+                <img
+                  style={{
+                    width: imagesDim + "px",
+                    height: imagesDim + "px",
+                  }}
+                  key={item + idx + "img"}
+                  src={IMAGE}
+                  alt="."
+                />
+              ))}
+          </div>
+        ) : null}
+
+        <div className="padding-x-m d-flex-col">
+          <div className="banner__content-price rating ">
+            <span className="price-orig">2 490₽</span>
+            <span className="price-old">4 290₽</span>
+          </div>
+
+          {!hideBest ? <span className="bestseller ">Бестселлер</span> : null}
+
+          <span className="description ">
+            Энергобаланс - нуклеиновые кислоты для энергии, ускорения
+            метаболизма{" "}
+          </span>
         </div>
 
-        <div className="banner__content-price rating padding-x-m">
-          <span className="price-orig">2 490₽</span>
-          <span className="price-old">4 290₽</span>
-        </div>
-
-        <span className="bestseller padding-x-m">Бестселлер</span>
-
-        <span className="description padding-x-m">
-          Энергобаланс - нуклеиновые кислоты для энергии, ускорения метаболизма{" "}
-        </span>
-
-        <div className="rating padding-x-m">
-          {Array(5)
-            .fill(0)
-            .map((item, idx) => (
-              <img key={item + idx} src={RATING} alt="*" />
-            ))}
-        </div>
+        {!hideRating ? (
+          <div className="rating padding-x-m">
+            {Array(5)
+              .fill(0)
+              .map((item, idx) => (
+                <img key={item + idx} src={RATING} alt="*" />
+              ))}
+          </div>
+        ) : null}
         <div className="margin-custom-m">
           <button className="btn">Купить на OZON</button>
         </div>

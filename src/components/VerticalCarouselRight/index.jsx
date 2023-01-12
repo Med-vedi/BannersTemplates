@@ -1,5 +1,4 @@
 import React from "react";
-import "./style.scss";
 import LOGO from "../../assets/logo.png";
 import IMAGE from "../../assets/image.png";
 import RATING from "../../assets/rating.svg";

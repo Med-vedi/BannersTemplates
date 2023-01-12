@@ -4,8 +4,6 @@ import IMAGE from "../../assets/image.png";
 import RATING from "../../assets/rating.svg";
 import { bannerHints } from "../../constants/banners";
 
-const rating = 5;
-
 const VerticalCarouselBottom = ({
   width,
   height,
@@ -14,7 +12,9 @@ const VerticalCarouselBottom = ({
 }) => {
   const { no_padding } = bannerProps || {};
 
+  const disclaimerH = 16 * 1.2;
   const containerPadding = 16 * 0.6 * 2;
+
   const mainImageWidth = no_padding ? width : width - containerPadding;
 
   const carouselWidth = mainImageWidth / 50 >= 5 ? 5 : 4;
@@ -24,7 +24,7 @@ const VerticalCarouselBottom = ({
     ? bannerHints[selectedPlug]?.height_percent
     : 0;
 
-  const contentH = 80 - plugHeight;
+  const contentH = height - disclaimerH - containerPadding - plugHeight;
 
   return (
     <div
@@ -33,7 +33,7 @@ const VerticalCarouselBottom = ({
     >
       <div
         className="banner-vertical__content"
-        style={{ height: `${contentH}%`, marginTop: height / 10 + "px" }}
+        style={{ height: `${contentH}%`, marginTop: disclaimerH + "px" }}
       >
         <div className="banner-brand padding-x-m">
           <img src={LOGO} alt="" />

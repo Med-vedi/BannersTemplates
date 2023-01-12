@@ -1,11 +1,8 @@
 import React from "react";
-import "./style.scss";
 import LOGO from "../../assets/logo.png";
 import IMAGE from "../../assets/image.png";
 import RATING from "../../assets/rating.svg";
 import { bannerHints } from "../../constants/banners";
-
-const rating = 5;
 
 const HorisontalCarouselBottom = ({
   width,
@@ -14,10 +11,11 @@ const HorisontalCarouselBottom = ({
   bannerProps,
 }) => {
   const { no_carousel, no_rating, no_best } = bannerProps || {};
-  const disclaimerHpercent = (16 * 1.2) / (height / 100);
   const disclaimerH = 16 * 1.2;
-
   const containerPadding = 16 * 0.6;
+
+  const disclaimerHpercent = disclaimerH / (height / 100);
+
   const mainImageWidth = width * 0.45 - containerPadding;
 
   const carouselWidth = mainImageWidth / 50 >= 5 ? 5 : 4;
@@ -27,7 +25,7 @@ const HorisontalCarouselBottom = ({
     ? bannerHints[selectedPlug]?.height_percent
     : 0;
 
-  const contentH = height - containerPadding * 1.2 - containerPadding;
+  const contentH = height - disclaimerH - containerPadding - plugHeight;
 
   return (
     <div
@@ -37,7 +35,7 @@ const HorisontalCarouselBottom = ({
       <div
         className="d-flex-col padding-custom-m"
         style={{
-          height: `${contentH - plugHeight - disclaimerH}px`,
+          height: `${contentH}px`,
           marginTop: "1.2rem",
           flex: 1,
         }}
@@ -56,7 +54,6 @@ const HorisontalCarouselBottom = ({
         >
           <div className="w-45">
             <img
-              className="banner-hcb__content-main__img"
               src={IMAGE}
               alt=""
               style={{
@@ -66,7 +63,7 @@ const HorisontalCarouselBottom = ({
             ></img>
 
             {!no_carousel ? (
-              <div className="carousel-hor">
+              <div className="carousel-hor" style={{ height: "20%" }}>
                 {Array(+carouselWidth)
                   .fill(0)
                   .map((item, idx) => (
@@ -84,7 +81,7 @@ const HorisontalCarouselBottom = ({
             ) : null}
           </div>
 
-          <div className="banner-hcb__content-aside">
+          <div className="d-flex-col justify-csb ml-5">
             <div className="price">
               <span className="price-orig">2 490₽</span>
               <span className="price-old">4 290₽</span>

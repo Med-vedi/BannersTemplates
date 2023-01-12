@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { TreeSelect } from "antd";
 import { treeData } from "../../constants/banners";
 
@@ -12,9 +12,20 @@ const BannerSelect = ({ onSelect }) => {
     setValue(title);
   };
 
+  useEffect(() => {
+    onSelect({
+      value: "vcbx300x600",
+      title: "300x600",
+    });
+  }, []);
+
   return (
     <div>
       <TreeSelect
+        defaultValue={{
+          value: "vcbx300x600",
+          title: "300x600",
+        }}
         showSearch
         style={{ maxWidth: "400px", minWidth: "200px" }}
         value={value}

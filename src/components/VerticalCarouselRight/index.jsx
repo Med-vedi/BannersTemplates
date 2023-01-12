@@ -11,6 +11,10 @@ const VerticalCarouselRight = ({
   bannerProps,
   settings = {},
 }) => {
+  const { hideCarousel, hideRating, hideBest } = settings;
+
+  const { no_carousel, no_rating, no_best } = bannerProps || {};
+
   const realBannerHeight = height * 0.8; //100% - 10% of disclaimer on top
 
   const mainImageHeight = realBannerHeight / 2; //50% of real banner height

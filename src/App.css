@@ -142,7 +142,7 @@ button {
   font-size: 0.8rem;
 }
 
-/* COMMON  */
+/* PADDINGS  */
 .padding-x-l {
   padding: 0 1rem;
 }
@@ -159,16 +159,25 @@ button {
   padding: 0 .6rem .6rem;
 }
 
-.margin-custom-m {
-  margin: 0 .6rem .6rem;
-}
-
 .padding-y-l {
   padding: 1rem 0;
 }
 
 .padding-y-m {
   padding: .6rem 0;
+}
+
+/* MARGINS  */
+.margin-custom-m {
+  margin: 0 .6rem .6rem;
+}
+
+.ml-6 {
+  margin-left: 6px;
+}
+
+.ml-12 {
+  margin-left: 12px;
 }
 
 /* WIDTH PERCENT */
@@ -196,6 +205,12 @@ button {
   width: 100%;
 }
 
+.m-w-300 {
+  max-width: 300px;
+}
+
+
+/* HEIGHT PERCENT */
 .h-20p {
   height: 20%;
 }
@@ -212,15 +227,9 @@ button {
   height: 90%;
 }
 
-.ml-6 {
-  margin-left: 6px;
-}
-
-.ml-12 {
-  margin-left: 12px;
-}
 
 
+/* POSITION */
 .d-flex {
   display: flex;
 }
@@ -255,11 +264,7 @@ button {
 
 }
 
-
-.m-w-300 {
-  max-width: 300px;
-}
-
+/* FONT SIZE  */
 .font-size-16 {
   font-size: 1em;
 }

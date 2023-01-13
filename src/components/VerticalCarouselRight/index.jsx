@@ -45,7 +45,7 @@ const VerticalCarouselRight = ({
           <span>Доктор Море</span>
         </section>
 
-        <div className="d-flex h-50p">
+        <div className="d-flex-center-center h-50p">
           <img className="w-80p" src={IMAGE} alt=""></img>
           {!no_carousel && !hideCarousel ? (
             <div className="carousel d-flex-col align-center">

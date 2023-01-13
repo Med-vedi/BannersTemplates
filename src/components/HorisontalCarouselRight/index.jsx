@@ -44,7 +44,7 @@ const HorisontalCarouselRight = ({
         </section>
 
         <div className="d-flex">
-          <div className="d-flex center-center">
+          <div className="d-flex-center-center">
             <img
               src={IMAGE}
               alt=""

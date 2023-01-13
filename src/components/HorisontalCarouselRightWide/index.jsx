@@ -27,8 +27,9 @@ const HorisontalCarouselRightWide = ({
   const imagesDim = bannerHeight / carouselLength;
 
   return (
-    <div
+    <a
       className="banner"
+      href="#"
       style={{ width: `${width}px`, height: `${height}px` }}
     >
       <div
@@ -141,7 +142,7 @@ const HorisontalCarouselRightWide = ({
           <span>{selectedPlug && bannerHints[selectedPlug]?.text}</span>
         </div>
       ) : null}
-    </div>
+    </a>
   );
 };
 

@@ -31,8 +31,9 @@ const HorisontalCarouselBottom = ({
   const bannerHeight = height - disclaimerH - containerPadding - plugHeight;
 
   return (
-    <div
+    <a
       className="banner"
+      href="#"
       style={{ width: `${width}px`, height: `${height}px` }}
     >
       <div
@@ -131,7 +132,7 @@ const HorisontalCarouselBottom = ({
           <span>{selectedPlug && bannerHints[selectedPlug]?.text}</span>
         </div>
       ) : null}
-    </div>
+    </a>
   );
 };
 

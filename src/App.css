@@ -30,7 +30,7 @@
 
 
 /* BANNER STYLES  */
-div.banner {
+a.banner {
   border: 1px solid black;
   background-color: #fff;
   display: flex;
@@ -40,7 +40,7 @@ div.banner {
 }
 
 /* all images */
-div.banner img {
+a.banner img {
   object-fit: contain;
 
 }

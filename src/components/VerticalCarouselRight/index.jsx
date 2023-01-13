@@ -14,6 +14,7 @@ const VerticalCarouselRight = ({
   const { hideCarousel, hideRating, hideBest } = settings;
 
   const { no_carousel, no_rating, no_best } = bannerProps || {};
+
   const plugHeight = selectedPlug
     ? bannerHints[selectedPlug]?.height_percent
     : 0;
@@ -32,8 +33,9 @@ const VerticalCarouselRight = ({
   const imagesDim = mainImageHeighPx / carouselLength;
 
   return (
-    <div
+    <a
       className="banner"
+      href="#"
       style={{ width: `${width}px`, height: `${height}px` }}
     >
       <div
@@ -105,7 +107,7 @@ const VerticalCarouselRight = ({
           <span>{selectedPlug && bannerHints[selectedPlug]?.text}</span>
         </div>
       ) : null}
-    </div>
+    </a>
   );
 };
 

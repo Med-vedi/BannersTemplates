@@ -4,7 +4,7 @@ import IMAGE from "../../assets/image.png";
 import RATING from "../../assets/rating.svg";
 import { bannerHints } from "../../constants/banners";
 
-const HorisontalCarouselBottom = ({
+const HorisontalCarouselRight = ({
   width,
   height,
   selectedPlug,
@@ -14,21 +14,17 @@ const HorisontalCarouselBottom = ({
   const { hideCarousel, hideRating, hideBest } = settings;
 
   const { no_carousel, no_rating, no_best } = bannerProps || {};
-  const disclaimerH = 16 * 1.2;
   const containerPadding = 16 * 0.6;
-
-  const disclaimerHpercent = disclaimerH / (height / 100);
-
-  const mainImageWidth = width * 0.45 - containerPadding;
-
-  const carouselLength = mainImageWidth / 50 >= 5 ? 5 : 4;
-  const imagesDim = mainImageWidth / carouselLength;
 
   const plugHeight = selectedPlug
     ? bannerHints[selectedPlug]?.height_percent
     : 0;
 
-  const bannerHeight = height - disclaimerH - containerPadding - plugHeight;
+  const bannerHeight =
+    height - plugHeight - containerPadding - containerPadding * 2;
+
+  const carouselLength = height / 30 >= 5 ? 5 : height / 30;
+  const imagesDim = bannerHeight / carouselLength;
 
   return (
     <div
@@ -36,26 +32,19 @@ const HorisontalCarouselBottom = ({
       style={{ width: `${width}px`, height: `${height}px` }}
     >
       <div
-        className="d-flex-col padding-custom-m"
+        className="d-flex padding-y-m"
         style={{
           height: `${bannerHeight}px`,
-          marginTop: "1.2rem",
           flex: 1,
         }}
       >
-        <div className="banner-brand">
-          <img src={LOGO} alt="" />
+        <div className="banner-brand d-flex-col justify-cc w-30">
+          <img style={{ margin: 0 }} src={LOGO} alt="" />
           <span>Доктор Море</span>
         </div>
 
-        <div
-          className="banner-content d-flex"
-          style={{
-            height:
-              100 - disclaimerHpercent - containerPadding - plugHeight + "%",
-          }}
-        >
-          <div className="w-90 d-flex-col center-center">
+        <div className="banner-content d-flex">
+          <div className="d-flex center-center">
             <img
               src={IMAGE}
               alt=""
@@ -66,7 +55,7 @@ const HorisontalCarouselBottom = ({
             ></img>
 
             {!no_carousel && !hideCarousel ? (
-              <div className="carousel-hor" style={{ height: "20%" }}>
+              <div className="carousel-vert">
                 {Array(+carouselLength)
                   .fill(0)
                   .map((item, idx) => (
@@ -84,10 +73,23 @@ const HorisontalCarouselBottom = ({
             ) : null}
           </div>
 
-          <div className="d-flex-col justify-csb ml-6">
+          <div
+            className="d-flex-col justify-csb"
+            style={{ padding: `${height * 0.05}px ${height * 0.09}px` }}
+          >
             <div className="price">
-              <span className="price-orig">2 490₽</span>
-              <span className="price-old">4 290₽</span>
+              <span
+                className="price-orig"
+                style={{ fontSize: height >= 200 ? "18px" : "16px" }}
+              >
+                2 490₽
+              </span>
+              <span
+                className="price-old"
+                style={{ fontSize: height >= 200 ? "16px" : "14px" }}
+              >
+                4 290₽
+              </span>
             </div>
 
             {!no_best && !hideBest ? (
@@ -96,8 +98,12 @@ const HorisontalCarouselBottom = ({
               </div>
             ) : null}
 
-            <span className="description">
+            <span
+              className="description m-w-300"
+              style={{ fontSize: height >= 200 ? "16px" : "14px" }}
+            >
               Энергобаланс - нуклеиновые кислоты для энергии, ускорения
+              метаболизма{" "}
             </span>
 
             {!no_rating && !hideRating ? (
@@ -131,4 +137,4 @@ const HorisontalCarouselBottom = ({
   );
 };
 
-export default HorisontalCarouselBottom;
+export default HorisontalCarouselRight;

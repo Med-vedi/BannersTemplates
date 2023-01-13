@@ -19,14 +19,14 @@ const VerticalCarouselBottom = ({
 
   const mainImageWidth = no_padding ? width : width - containerPadding;
 
-  const carouselWidth = mainImageWidth / 50 >= 5 ? 5 : 4;
-  const imagesDim = mainImageWidth / carouselWidth;
+  const carouselLength = mainImageWidth / 50 >= 5 ? 5 : 4;
+  const imagesDim = mainImageWidth / carouselLength;
 
   const plugHeight = selectedPlug
     ? bannerHints[selectedPlug]?.height_percent
     : 0;
 
-  const contentH = height - disclaimerH - containerPadding - plugHeight;
+  const bannerHeight = height - disclaimerH - containerPadding - plugHeight;
 
   return (
     <div
@@ -35,7 +35,7 @@ const VerticalCarouselBottom = ({
     >
       <div
         className="banner-vertical__content"
-        style={{ height: `${contentH}%`, marginTop: disclaimerH + "px" }}
+        style={{ height: `${bannerHeight}%`, marginTop: disclaimerH + "px" }}
       >
         <div className="banner-brand padding-x-m">
           <img src={LOGO} alt="" />
@@ -53,7 +53,7 @@ const VerticalCarouselBottom = ({
             className="carousel-hor"
             style={{ padding: no_padding ? 0 : "0.6rem" }}
           >
-            {Array(+carouselWidth)
+            {Array(+carouselLength)
               .fill(0)
               .map((item, idx) => (
                 <img

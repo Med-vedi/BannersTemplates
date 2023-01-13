@@ -114,6 +114,49 @@ export const treeData = [
           },
         ],
       },
+      {
+        value: "hcr",
+        title: "Horisontal Carousel Right",
+        children: [
+          {
+            value: "hcrx970x250",
+            title: "970x250",
+          },
+        ],
+      },
+      {
+        value: "hcrw",
+        title: "Horisontal Carousel Right Wide",
+        children: [
+          {
+            value: "hcrwx1000x120",
+            title: "1000x120",
+            extra: {
+              // no_carousel: true,
+              // no_rating: true,
+              no_best: true,
+            },
+          },
+          {
+            value: "hcrwx970x90",
+            title: "970x90",
+            extra: {
+              // no_carousel: true,
+              // no_rating: true,
+              no_best: true,
+            },
+          },
+          {
+            value: "hcrwx728x90",
+            title: "728x90",
+            extra: {
+              no_carousel: true,
+              // no_rating: true,
+              no_best: true,
+            },
+          },
+        ],
+      },
     ],
   },
 ];

@@ -14,25 +14,22 @@ const VerticalCarouselRight = ({
   const { hideCarousel, hideRating, hideBest } = settings;
 
   const { no_carousel, no_rating, no_best } = bannerProps || {};
-
-  const realBannerHeight = height * 0.8; //100% - 10% of disclaimer on top
-
-  const mainImageHeight = realBannerHeight / 2; //50% of real banner height
-  const carouselLength = parseInt(mainImageHeight / 50);
-  const imagesInRow = carouselLength >= 5 ? 5 : 4;
-
   const plugHeight = selectedPlug
     ? bannerHints[selectedPlug]?.height_percent
     : 0;
 
-  // percents 80 because of 20% of the disclaimer header
-  const contentH = 80 - plugHeight;
+  const disclaimerH = 16 * 1.2;
+  const paddingSizePx = 16 * 0.6;
+  const containerYPadding = paddingSizePx * 2;
 
-  const imageCarouselHeight = plugHeight
-    ? (mainImageHeight - plugHeight) / imagesInRow
-    : mainImageHeight / imagesInRow;
+  const mainImageHeighPx =
+    (height - disclaimerH - paddingSizePx - plugHeight) / 2;
 
-  const imagesDim = imageCarouselHeight;
+  const bannerHeight = height - disclaimerH - containerYPadding - plugHeight;
+
+  const carouselLength = mainImageHeighPx / 50 >= 5 ? 5 : 4;
+
+  const imagesDim = mainImageHeighPx / carouselLength;
 
   return (
     <div
@@ -41,7 +38,7 @@ const VerticalCarouselRight = ({
     >
       <div
         className="banner-vertical__content padding-custom-m"
-        style={{ height: `${contentH}%`, marginTop: height / 10 + "px" }}
+        style={{ height: `${bannerHeight}%`, marginTop: disclaimerH + "px" }}
       >
         <div className="banner-brand">
           <img src={LOGO} alt="" />
@@ -56,7 +53,7 @@ const VerticalCarouselRight = ({
           ></img>
           {!no_carousel && !hideCarousel ? (
             <div className="carousel-vert">
-              {Array(+imagesInRow)
+              {Array(+carouselLength)
                 .fill(0)
                 .map((item, idx) => (
                   <img

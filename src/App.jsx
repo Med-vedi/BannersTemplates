@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import BannerOptions from "./components/BannerOptions";
 import HorisontalCarouselBottom from "./components/HorisontalCarouselBottom";
+import HorisontalCarouselRight from "./components/HorisontalCarouselRight";
+import HorisontalCarouselRightWide from "./components/HorisontalCarouselRightWide";
 import VerticalCarouselBottom from "./components/VerticalCarouselBottom";
 import VerticalCarouselRight from "./components/VerticalCarouselRight";
 
@@ -51,6 +53,24 @@ function App() {
         ) : null}
         {type === "hcb" ? (
           <HorisontalCarouselBottom
+            width={w}
+            height={h}
+            selectedPlug={selectedPlug}
+            bannerProps={bannerProps}
+            settings={settings}
+          />
+        ) : null}
+        {type === "hcr" ? (
+          <HorisontalCarouselRight
+            width={w}
+            height={h}
+            selectedPlug={selectedPlug}
+            bannerProps={bannerProps}
+            settings={settings}
+          />
+        ) : null}
+        {type === "hcrw" ? (
+          <HorisontalCarouselRightWide
             width={w}
             height={h}
             selectedPlug={selectedPlug}

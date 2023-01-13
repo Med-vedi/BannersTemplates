@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import LOGO from "../../assets/logo.png";
 import IMAGE from "../../assets/image.png";
 import RATING from "../../assets/rating.svg";
@@ -29,6 +29,16 @@ const VerticalCarouselBottom = ({
 
   const bannerHeight = height - disclaimerH - containerPadding - plugHeight;
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (isActiveImg === carouselLength - 1) {
+        return setActiveImg(0);
+      }
+      setActiveImg(isActiveImg + 1);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, [isActiveImg]);
+
   return (
     <a
       className="banner"
@@ -55,9 +65,9 @@ const VerticalCarouselBottom = ({
               .fill(0)
               .map((item, idx) => (
                 <img
+                  onMouseOver={() => setActiveImg(idx)}
+                  onMouseOut={() => setActiveImg(0)}
                   className="carousel-image"
-                  // onMouseOver={() => setActiveImg(idx)}
-                  // onMouseOut={() => setActiveImg(null)}
                   style={{
                     width: `${
                       isActiveImg === idx ? imagesDim - 4 : imagesDim
@@ -65,7 +75,7 @@ const VerticalCarouselBottom = ({
                     height: `${
                       isActiveImg === idx ? imagesDim - 4 : imagesDim
                     }px`,
-                    border: isActiveImg === idx ? "2px solid blue" : null,
+                    border: isActiveImg === idx ? "2px solid #0060FF" : null,
                   }}
                   key={item + idx + "img"}
                   src={IMAGE}

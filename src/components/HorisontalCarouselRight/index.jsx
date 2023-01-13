@@ -38,12 +38,12 @@ const HorisontalCarouselRight = ({
           flex: 1,
         }}
       >
-        <div className="banner-brand d-flex-col justify-cc w-30">
+        <section className="banner-brand d-flex-col justify-cc w-30p">
           <img style={{ margin: 0 }} src={LOGO} alt="" />
           <span>Доктор Море</span>
-        </div>
+        </section>
 
-        <div className="banner-content d-flex">
+        <div className="d-flex">
           <div className="d-flex center-center">
             <img
               src={IMAGE}
@@ -55,14 +55,15 @@ const HorisontalCarouselRight = ({
             ></img>
 
             {!no_carousel && !hideCarousel ? (
-              <div className="carousel-vert">
+              <div className="carousel d-flex-col align-center">
                 {Array(+carouselLength)
                   .fill(0)
                   .map((item, idx) => (
                     <img
+                      className="carousel-image"
                       style={{
-                        width: imagesDim + "px",
-                        height: imagesDim + "px",
+                        width: `${imagesDim}px`,
+                        height: `${imagesDim}px`,
                       }}
                       key={item + idx + "img"}
                       src={IMAGE}
@@ -122,7 +123,7 @@ const HorisontalCarouselRight = ({
 
       {selectedPlug ? (
         <div
-          className="banner__marking_plug"
+          className="disclaimer-warning-plug"
           style={{
             fontSize:
               bannerHints[selectedPlug]?.height_percent > 5 ? "1rem" : ".4rem",

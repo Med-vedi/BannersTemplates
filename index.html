@@ -21,6 +21,94 @@
     type="module"
     src="/src/main.jsx"
   ></script>
+
+  <script>
+
+
+    let carouselImages = document.getElementsByClassName("carousel-image");
+
+    const carousel = document.getElementsByClassName('carousel')
+
+    carousel.onmouseover = function (e) {
+      console.log('===============FIRE==========================');
+      console.log(`WE GOT: `, e.target);
+      console.log('=========================================');
+
+      // autoPlay = clearInterval(autoPlay);
+    };
+    // window.onload = function () {
+    //   let time = 4000
+    //   let counter = 0
+
+    //   let main_img = document.getElementById("main_img");
+
+    //   let images = document.getElementsByClassName("image");
+
+    //   const carousel = document.getElementsByClassName('carousel')
+
+    //   let arrImages = [].slice.call(images);
+    //   const filteredImages = arrImages.filter(image => !!image.id)
+    //   const carouselLength = filteredImages.length
+
+
+    //   addBorder(0)
+
+    //   function moveUP() {
+    //     if (counter === carouselLength) {
+
+    //       counter = 0
+    //       addBorder(0)
+
+    //     }
+    //     for (let index = 0; index < filteredImages.length; index++) {
+    //       const element = filteredImages[index];
+    //       if (index === counter) {
+    //         addBorder(index)
+    //       } else {
+    //         removeBorder(index)
+    //       }
+    //     }
+    //     let activeImg = filteredImages[counter]
+
+    //     const carouselImgId = filteredImages[counter].id
+    //     const carouselImgSrc = filteredImages[counter].currentSrc
+
+    //     counter++
+    //     return main_img.src = carouselImgSrc;
+    //   }
+
+    //   let autoPlay = setInterval(moveUP, time);
+
+    //   function addBorder(id) {
+    //     const activeImg = filteredImages[id]
+    //     activeImg.style.border = "1px solid #0060FF";
+    //     activeImg.style.width = `${30}px`;
+    //     activeImg.style.height = `${30}px`;
+
+    //   }
+
+    //   function removeBorder(id) {
+    //     const nonSelectedImg = filteredImages[id]
+    //     nonSelectedImg.style.border = "none";
+    //     nonSelectedImg.style.width = `${32}px`;
+    //     nonSelectedImg.style.height = `${32}px`;
+
+    //   }
+
+    //   carousel.onmouseover = function (e) {
+    //     console.log('===============FIRE==========================');
+    //     console.log(`WE GOT: `, e.target);
+    //     console.log('=========================================');
+
+    //     autoPlay = clearInterval(autoPlay);
+    //   };
+
+    //   images[0].onmouseout = function () {
+    //     autoPlay = setInterval(moveUP, time);
+    //     line.style.animation = "line " + time / 1000 + "s linear infinite";
+    //   };
+    // }
+  </script>
 </body>
 
 </html>

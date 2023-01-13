@@ -37,29 +37,26 @@ const VerticalCarouselRight = ({
       style={{ width: `${width}px`, height: `${height}px` }}
     >
       <div
-        className="banner-vertical__content padding-custom-m"
+        className="d-flex-col padding-custom-m"
         style={{ height: `${bannerHeight}%`, marginTop: disclaimerH + "px" }}
       >
-        <div className="banner-brand">
+        <section className="banner-brand">
           <img src={LOGO} alt="" />
           <span>Доктор Море</span>
-        </div>
+        </section>
 
-        <div className="banner-vertical-cr-image__wrapper">
-          <img
-            className="banner-vertical-cr-image__img"
-            src={IMAGE}
-            alt=""
-          ></img>
+        <div className="d-flex h-50p">
+          <img className="w-80p" src={IMAGE} alt=""></img>
           {!no_carousel && !hideCarousel ? (
-            <div className="carousel-vert">
+            <div className="carousel d-flex-col align-center">
               {Array(+carouselLength)
                 .fill(0)
                 .map((item, idx) => (
                   <img
+                    className="carousel-image"
                     style={{
-                      width: imagesDim + "px",
-                      height: imagesDim + "px",
+                      width: `${imagesDim}px`,
+                      height: `${imagesDim}px`,
                     }}
                     key={item + idx + "img"}
                     src={IMAGE}
@@ -97,7 +94,7 @@ const VerticalCarouselRight = ({
 
       {selectedPlug ? (
         <div
-          className="banner__marking_plug"
+          className="disclaimer-warning-plug"
           style={{
             fontSize:
               bannerHints[selectedPlug]?.height_percent > 5 ? "1rem" : ".6rem",

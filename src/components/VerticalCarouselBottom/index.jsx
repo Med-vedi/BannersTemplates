@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import LOGO from "../../assets/logo.png";
 import IMAGE from "../../assets/image.png";
 import RATING from "../../assets/rating.svg";
@@ -11,6 +11,7 @@ const VerticalCarouselBottom = ({
   bannerProps,
   settings = {},
 }) => {
+  const [isActiveImg, setActiveImg] = useState(0);
   const { hideCarousel, hideRating, hideBest } = settings;
   const { no_padding } = bannerProps || {};
 
@@ -29,37 +30,42 @@ const VerticalCarouselBottom = ({
   const bannerHeight = height - disclaimerH - containerPadding - plugHeight;
 
   return (
-    <div
+    <a
       className="banner"
       style={{ width: `${width}px`, height: `${height}px` }}
+      href="#"
     >
       <div
-        className="banner-vertical__content"
+        className="d-flex-col"
         style={{ height: `${bannerHeight}%`, marginTop: disclaimerH + "px" }}
       >
-        <div className="banner-brand padding-x-m">
+        <section className="banner-brand padding-x-m">
           <img src={LOGO} alt="" />
           <span>Доктор Море</span>
-        </div>
+        </section>
 
-        <img
-          className="banner-vertical-cb-main__img padding-x-m"
-          src={IMAGE}
-          alt=""
-        />
+        <img className="h-50p padding-x-m" src={IMAGE} alt="" />
 
         {!hideCarousel ? (
           <div
-            className="carousel-hor"
+            className="carousel d-flex align-center"
             style={{ padding: no_padding ? 0 : "0.6rem" }}
           >
             {Array(+carouselLength)
               .fill(0)
               .map((item, idx) => (
                 <img
+                  className="carousel-image"
+                  // onMouseOver={() => setActiveImg(idx)}
+                  // onMouseOut={() => setActiveImg(null)}
                   style={{
-                    width: imagesDim + "px",
-                    height: imagesDim + "px",
+                    width: `${
+                      isActiveImg === idx ? imagesDim - 4 : imagesDim
+                    }px`,
+                    height: `${
+                      isActiveImg === idx ? imagesDim - 4 : imagesDim
+                    }px`,
+                    border: isActiveImg === idx ? "2px solid blue" : null,
                   }}
                   key={item + idx + "img"}
                   src={IMAGE}
@@ -99,7 +105,7 @@ const VerticalCarouselBottom = ({
 
       {selectedPlug ? (
         <div
-          className="banner__marking_plug"
+          className="disclaimer-warning-plug"
           style={{
             fontSize:
               bannerHints[selectedPlug]?.height_percent > 5 ? "1rem" : ".6rem",
@@ -110,7 +116,7 @@ const VerticalCarouselBottom = ({
           <span>{selectedPlug && bannerHints[selectedPlug]?.text}</span>
         </div>
       ) : null}
-    </div>
+    </a>
   );
 };
 

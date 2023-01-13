@@ -43,19 +43,19 @@ const HorisontalCarouselBottom = ({
           flex: 1,
         }}
       >
-        <div className="banner-brand">
+        <section className="banner-brand">
           <img src={LOGO} alt="" />
           <span>Доктор Море</span>
-        </div>
+        </section>
 
         <div
-          className="banner-content d-flex"
+          className="d-flex"
           style={{
             height:
               100 - disclaimerHpercent - containerPadding - plugHeight + "%",
           }}
         >
-          <div className="w-90 d-flex-col center-center">
+          <div className="w-90p d-flex-col center-center">
             <img
               src={IMAGE}
               alt=""
@@ -66,14 +66,18 @@ const HorisontalCarouselBottom = ({
             ></img>
 
             {!no_carousel && !hideCarousel ? (
-              <div className="carousel-hor" style={{ height: "20%" }}>
+              <div
+                className="carousel d-flex align-center"
+                style={{ height: "20%" }}
+              >
                 {Array(+carouselLength)
                   .fill(0)
                   .map((item, idx) => (
                     <img
+                      className="carousel-image"
                       style={{
-                        width: imagesDim + "px",
-                        height: imagesDim + "px",
+                        width: `${imagesDim}px`,
+                        height: `${imagesDim}px`,
                       }}
                       key={item + idx + "img"}
                       src={IMAGE}
@@ -116,7 +120,7 @@ const HorisontalCarouselBottom = ({
 
       {selectedPlug ? (
         <div
-          className="banner__marking_plug"
+          className="disclaimer-warning-plug"
           style={{
             fontSize:
               bannerHints[selectedPlug]?.height_percent > 5 ? "1rem" : ".4rem",
